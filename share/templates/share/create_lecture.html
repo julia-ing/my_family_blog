@@ -1,0 +1,13 @@
+{% extends 'share/base.html' %}
+{% load static %}
+{% block content %}
+
+    <div style="width: 500px; margin: auto; padding: 40px;">
+        <form action="{% url 'create_lecture' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ lecture_form.as_p }}
+            <button type="submit" style="padding: 5px; margin: auto;">저장</button>
+        </form>
+    </div>
+
+{% endblock %}

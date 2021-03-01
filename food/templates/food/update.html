@@ -1,0 +1,14 @@
+{% extends 'food/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <form action="{% url 'restaurant-update' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{ form.instance.id }}"/>
+        <table style="background-color: #f8e9de;">
+            {{ form.as_table }}
+        </table>
+        <button class="submit" type="submit" style="background-color: #feb546; color: white;">수정완료</button>
+    </form>
+</div>
+{% endblock %}

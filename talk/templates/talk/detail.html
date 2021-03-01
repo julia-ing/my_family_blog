@@ -1,0 +1,36 @@
+{% extends 'talk/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12" style="margin-top:20px;">
+            <p>
+                <a href="{% url 'talk-delete' id=item.id %}">
+                    <button class="btn" style="background-color: #feb546; color: white;">삭제하기</button>
+                </a>
+            </p>
+            <hr/>
+            <p>
+                <a href="{% url 'comment-create' talk_id=item.id %}">
+                    <button class="btn" style="background-color: #feb546; color: white;">댓글쓰기</button>
+                </a>
+            </p>
+            {% for content in contents %}
+                <div class="card mb-3" style="background-color: #ff9b9b;">
+                    <div class="card-header">
+                        <b>댓글 작성자: {{ content.writer }}</b>
+                        <a href="{% url 'comment-delete' talk_id=item.id comment_id=content.id %}">
+                            <button type="button" class="close" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </a>
+                    </div>
+                    <div class="card-body" style="background-color: #f8e9de">
+                        <p class="card-text">{{ content.content }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

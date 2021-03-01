@@ -1,0 +1,56 @@
+{% extends 'talk/base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .card-link {
+        background-color: #feb546;
+        color: white;
+    }
+    .card-link:hover {
+        color: black;
+    }
+</style>
+
+<div class="container">
+    {% for item in talks %}
+    <div class="row talk-item" style="margin:20px auto;">
+        <div class="col-sm-12">
+            <div class="card border-secondary">
+                <div class="card-body" style="background-color: #f8e9de">
+                    <p class="card-text">(By {{ item.writer }}) - {{ item.content }}</p>
+                    <a href="{% url 'talk-detail' id=item.id %}" class="card-link">댓글 보기</a>
+                    <a href="{% url 'talk-update' %}?id={{ item.id }}" class="card-link">수정하기</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+{#페이징하기#}
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <div class="paginator">
+                <span class="step-links text-center" style="width:100%">
+                    {% if talks.has_previous %}
+                        <a href="?page=1">&laquo;</a>
+                        <a href="?page={{ talks.previous_page_number }}">{{ talks.previous_page_number }}</a>
+                    {% endif %}
+
+                    <span class="current">
+                        {{ talks.number }}
+                    </span>
+
+                    {% if talks.has_next %}
+                        <a href="?page={{ talks.next_page_number }}">{{talks.next_page_number}}</a>
+                        ...
+                        <a href="?page={{ talks.paginator.num_pages }}">{{ talks.paginator.num_pages }}</a>
+                    {% endif %}
+
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

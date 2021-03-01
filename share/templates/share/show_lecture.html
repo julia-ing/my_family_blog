@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            float: left;
+        }
+        .left {
+            width: 70%;
+        }
+        .right {
+            width: 30%;
+        }
+        ul li {
+            list-style: none;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid black;
+        }
+        iframe {
+            width: 120vh;
+            height: 65vh;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="left lecture1">
+        {{ board_contents.lecture_video1 | safe }}
+    </div>
+    <div class="left lecture2" style="display: none;">
+        {{ board_contents.lecture_video2 | safe }}
+    </div>
+    <div class="left lecture3" style="display: none;">
+        {{ board_contents.lecture_video3 | safe }}
+    </div>
+    <div class="left lecture4" style="display: none;">
+        {{ board_contents.lecture_video4 | safe }}
+    </div>
+    <div class="right">
+        <ul>
+            <li id="title1">{{ board_contents.lecture_title1 }}</li>
+            <li id="title2">{{ board_contents.lecture_title2 }}</li>
+            <li id="title3">{{ board_contents.lecture_title3 }}</li>
+            <li id="title4">{{ board_contents.lecture_title4 }}</li>
+        </ul>
+    </div>
+
+    <script>
+        $('#title1').click(function() {
+            $('.left').hide();
+            $('.lecture1').show();
+        });
+        $('#title2').click(function() {
+            $('.left').hide();
+            $('.lecture2').show();
+        });
+        $('#title3').click(function() {
+            $('.left').hide();
+            $('.lecture3').show();
+        });
+        $('#title4').click(function() {
+            $('.left').hide();
+            $('.lecture4').show();
+        });
+    </script>
+</body>
+</html>

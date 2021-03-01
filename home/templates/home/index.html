@@ -1,0 +1,63 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block content %}
+
+    <style>
+        .welcome {
+            text-align: center;
+            padding-top: 25vh;
+            margin: 20px auto;
+        }
+        .main-buttons {
+            display: flex;
+            justify-content: center;
+            padding-bottom: 30vh;
+        }
+        .main-buttons button {
+            background-color: var(--color-pink);
+            color: white;
+            border-radius: 5px;
+            padding: 12px 20px;
+            transition: all 250ms ease;
+            font-size: 18px;
+            margin: 0 50px;
+        }
+        .main-buttons button:hover {
+            background-color: #feb546;
+            border-radius: 5px;
+            border: 1px solid white;
+            transform: scale(1.1);
+        }
+        .focus-in-contract {
+            animation: focus-in-contract 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+        @keyframes focus-in-contract {
+          0% {
+            letter-spacing: 1em;
+            -webkit-filter: blur(12px);
+                    filter: blur(12px);
+            opacity: 0;
+          }
+          100% {
+            -webkit-filter: blur(0px);
+                    filter: blur(0px);
+            opacity: 1;
+          }
+        }
+
+    </style>
+
+    <div class="container">
+        <span class="focus-in-contract"> <h1 class="welcome">Welcome, <br/>This is Yewon's Family Blog</h1> </span>
+        <div class="main-buttons">
+            {% if user.is_authenticated %}
+                <button class="login"> <a href="/join/logout">로그아웃</a> </button>
+                <button class="join"> <a href="/join/join">회원가입</a> </button>
+            {% else %}
+                <button class="login"> <a href="/join/login">로그인</a> </button>
+                <button class="join"> <a href="/join/join">회원가입</a> </button>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,115 @@
+{% extends 'share/base.html' %}
+{% load static %}
+{% block content %}
+
+    <style>
+        div {
+            float: left;
+        }
+        .thumbnail a {
+            display: flex;
+            flex-direction: column;
+            color: black;
+        }
+
+    </style>
+
+    <div class="left">
+        <select style="height: 50px; width: 150px; font-size: 18px; margin: 15px;" name="type" id="type">
+            <option id="filter">카테고리 필터</option>
+            <option id="around-news">주변 뉴스</option>
+            <option id="family-news">가족 소식</option>
+            <option id="memory">추억 기록</option>
+        </select>
+    </div>
+
+    <div class="right">
+        <div class="lecture-container all">
+        {% for text in texts %}
+            <div class="lectures">
+                <div class="thumbnail">
+                    <a href="{% url 'lecture_list_info' pk=text.pk %}">
+                      <img src="../../media/{{ text.img_url }}" alt="{{ text.img_url }}">
+                      <div class="caption">
+                        <h3>{{ text.title }}</h3>
+                      </div>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+        <div class="around_news all">
+            {% for text in around_news %}
+                <div class="lectures">
+                    <div class="thumbnail">
+                        <a href="{% url 'lecture_list_info' pk=text.pk %}">
+                          <img src="../../media/{{ text.img_url }}" alt="{{ text.img_url }}">
+                          <div class="caption">
+                            <h3>{{ text.title }}</h3>
+                          </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="family_news all">
+            {% for text in family_news %}
+                <div class="lectures">
+                    <div class="thumbnail">
+                        <a href="{% url 'lecture_list_info' pk=text.pk %}">
+                          <img src="../../media/{{ text.img_url }}" alt="{{ text.img_url }}">
+                          <div class="caption">
+                            <h3>{{ text.title }}</h3>
+                          </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="memory all">
+            {% for text in memory %}
+                <div class="lectures">
+                    <div class="thumbnail">
+                        <a href="{% url 'lecture_list_info' pk=text.pk %}">
+                          <img src="../../media/{{ text.img_url }}" alt="{{ text.img_url }}">
+                          <div class="caption">
+                            <h3>{{ text.title }}</h3>
+                          </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('.lecture-container').show();
+            $('.around_news').hide();
+            $('.family_news').hide();
+            $('.memory').hide();
+        });
+        $(function() {
+            $('#type').change(function(){
+                if($('#type').val() == '카테고리 필터') {
+                    $('.lecture-container').show();
+                    $('.around_news').hide();
+                    $('.family_news').hide();
+                    $('.memory').hide();
+                } else if($('#type').val() == '주변 뉴스') {
+                    $('.all').hide();
+                    $('.around_news').show();
+                } else if($('#type').val() == '가족 소식') {
+                    $('.all').hide();
+                    $('.family_news').show();
+                } else if($('#type').val() == '추억 기록') {
+                    $('.all').hide();
+                    $('.memory').show();
+                }
+            });
+        });
+    </script>
+
+{% endblock %}

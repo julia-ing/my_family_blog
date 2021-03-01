@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Family Blog</title>
+    <script src="https://kit.fontawesome.com/2abc095ccc.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap" rel="stylesheet">
+    <script src="{% static 'home/main.js' %}" defer></script>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo" style="margin: 15px 0;">
+            <a href="#">
+            <i class="fas fa-igloo"></i>
+            Family Blog</a>
+        </div>
+        <div>
+            <ul class="menu">
+                {% if user.is_authenticated %}
+                    <li class="talk">
+                        <a href="/talk/list">사랑의 한마디</a>
+                    </li>
+                    <li class="food">
+                        <a href="/food/list">우리만의 핫플</a>
+                    </li>
+                    <li class="share">
+                        <a href="/share/lecture_list">자유 게시판</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    {% block content %}
+    {% endblock%}
+</body>
+</html>

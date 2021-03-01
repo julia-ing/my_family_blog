@@ -1,0 +1,46 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .submit-btn {
+        border: 1px solid black;
+        padding: 10px;
+        cursor: pointer;
+        background-color: #ff9b9b;
+        color: white;
+        transition: all 250ms ease;
+    }
+    .submit-btn:hover {
+        border: 1px solid white;
+        border-radius: 5px;
+        background-color: var(--color-orange);
+        transform: scale(1.1);
+    }
+    .form-control {
+        margin-bottom: 20px;
+        line-height: 24px;
+        width: 300px;
+    }
+</style>
+
+<div style="width:300px; margin: 100px auto;">
+    <form method="POST" action="{% url 'join' %}">
+        {% csrf_token %}
+        <h3>Sign Up</h3>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label><br/>
+        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="이메일을 입력하세요">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label><br/>
+        <input name="pwd" type="password" class="form-control" id="exampleInputPassword1" placeholder="암호">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Profile Image</label><br/>
+        <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" class="form-control" placeholder="프로필 사진">
+      </div>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+</div>
+{% endblock %}

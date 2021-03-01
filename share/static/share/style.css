@@ -1,0 +1,45 @@
+* {
+    margin:0px;
+    padding: 0px;
+}
+nav {
+    width: 100%;
+    background-color: white;
+
+}
+nav ul {
+    float: right;
+}
+nav ul a {
+    color: white;
+}
+nav ul li {
+    margin: 10px;
+    list-style-type: none;
+    display: inline-block;
+}
+
+.main_caption {
+    margin: 10px 0 0 10px;
+}
+
+.lecture-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.lectures {
+    border: 1px solid black;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 5px;
+}
+.lectures img {
+    height: 30vh;
+    width: 20vw;
+}
+.caption {
+    padding: 15px;
+}
+
+

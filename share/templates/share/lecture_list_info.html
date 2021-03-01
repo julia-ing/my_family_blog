@@ -1,0 +1,76 @@
+{% extends 'share/base.html' %}
+{% load static %}
+{% block content %}
+
+    <style>
+        .contents {
+            width: 1000px;
+            margin: 20px auto;
+            padding: 100px;
+            border: 1px solid black;
+        }
+    </style>
+
+    <div class="contents">
+    {{ board_contents.board_text | safe }}
+    </div>
+
+    <div style="width:800px; margin: auto;">
+        <form method="POST" action="{% url 'lecture_list_info' pk=board_contents.pk %}">
+            {% csrf_token %}
+            <h3>Comment</h3>
+          <div class="form-group">
+            <label for="exampleInputPassword1">댓글 작성자</label>
+            <input name="writer" type="text" class="form-control" id="exampleInputPassword1" placeholder="댓글 작성자">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">평점</label>
+            <input name="rate" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="평점">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">댓글</label>
+            <input name="comment" type="text" class="form-control" id="exampleInputPassword1" placeholder="댓글">
+          </div>
+
+          <button type="submit" class="btn" style="margin-bottom: 10px; background-color: darksalmon;">Submit</button>
+        </form>
+    </div>
+
+    <div>
+        <style>
+            tr td{
+                border: 1px solid black;
+                padding: 10px;
+                background-color: lavender;
+            }
+        </style>
+        <table style="width: 500px; margin: auto;">
+
+                <tr>
+                    {% if board_contents.lecture_title1 %}
+                        <td>
+                            <a href="{% url 'show_lecture' pk=board_contents.pk %}">
+                                {{ board_contents.lecture_title1 }}
+                            </a>
+                        </td>
+                    {% endif %}
+                </tr>
+
+        </table>
+    </div>
+
+    <div style="width:820px; margin: auto; padding: 10px;">
+        {% for comment_item in comment %}
+            <div style="border: 1px solid black; padding: 10px;">
+                <h5>writer: {{ comment_item.writer }}</h5>
+                <h5>rate: {{ comment_item.rate }}</h5>
+                <h5>comment: {{ comment_item.comment }}</h5>
+                <form method="POST" action="{% url 'comment_remove' pk=comment_item.pk %}">
+                    {% csrf_token %}
+                    <button style="background-color: darksalmon; border-radius: 5px; padding: 5px;">삭제하기</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

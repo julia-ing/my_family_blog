@@ -1,0 +1,13 @@
+{% extends 'talk/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <form action="{% url 'talk-create' %}" method="post">
+        {% csrf_token %}
+        <table style="background-color: #f8e9de">
+            {{ form.as_table }}
+        </table>
+        <button type="submit" style="background-color: #feb546; color: white;">등록</button>
+    </form>
+</div>
+{% endblock %}
