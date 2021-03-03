@@ -12,6 +12,8 @@ class myText(models.Model):
     category = models.CharField(max_length=200, null=True)
 
     board_text = RichTextUploadingField(null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 
     def publish(self):
@@ -25,6 +27,9 @@ class Comment(models.Model):
     writer = models.CharField(max_length=200, null=True)
     rate = models.CharField(max_length=200, null=True)
     comment = models.CharField(max_length=200, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
     def publish(self):
         self.save()
 
