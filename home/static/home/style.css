@@ -1,14 +1,7 @@
 :root {
     /* Color */
     --color-pink: #ff9b9b;
-    --color-purple: #bcabdc;
-    --color-dark-grey: #4d4d4d;
-    --color-grey: #616161;
-    --color-light-grey: #7c7979;
-    --color-skyblue: #d1eaff;
     --color-orange: #feb546;
-    --color-black: #000000;
-    --color-dark-pink: #ff7a8d;
 }
 * {
     font-family: 'Sunflower', sans-serif;
