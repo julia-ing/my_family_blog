@@ -1,5 +1,5 @@
 # my_family_blog - 가족 블로그 프로젝트
-### 스택 : flask + mongodb
+### 스택 : django + sqlite3
 
 <주요기능>
 - 로그인 회원가입 기능
