@@ -24,11 +24,11 @@
     </div>
 
     <div class="right">
-        <div class="lecture-container all">
+        <div class="posting-container all">
         {% for text in texts %}
-            <div class="lectures">
+            <div class="posting">
                 <div class="thumbnail">
-                    <a href="{% url 'lecture_list_info' pk=text.pk %}">
+                    <a href="{% url 'posting_list_info' pk=text.pk %}">
                       <img src="../../media/{{ text.img_url }}" alt="{{ text.img_url }}">
                       <div class="caption">
                         <h3>{{ text.title }}</h3>
@@ -40,9 +40,9 @@
         </div>
         <div class="around_news all">
             {% for text in around_news %}
-                <div class="lectures">
+                <div class="posting">
                     <div class="thumbnail">
-                        <a href="{% url 'lecture_list_info' pk=text.pk %}">
+                        <a href="{% url 'posting_list_info' pk=text.pk %}">
                           <img src="../../media/{{ text.img_url }}" alt="{{ text.img_url }}">
                           <div class="caption">
                             <h3>{{ text.title }}</h3>
@@ -55,9 +55,9 @@
 
         <div class="family_news all">
             {% for text in family_news %}
-                <div class="lectures">
+                <div class="posting">
                     <div class="thumbnail">
-                        <a href="{% url 'lecture_list_info' pk=text.pk %}">
+                        <a href="{% url 'posting_list_info' pk=text.pk %}">
                           <img src="../../media/{{ text.img_url }}" alt="{{ text.img_url }}">
                           <div class="caption">
                             <h3>{{ text.title }}</h3>
@@ -70,9 +70,9 @@
 
         <div class="memory all">
             {% for text in memory %}
-                <div class="lectures">
+                <div class="posting">
                     <div class="thumbnail">
-                        <a href="{% url 'lecture_list_info' pk=text.pk %}">
+                        <a href="{% url 'posting_list_info' pk=text.pk %}">
                           <img src="../../media/{{ text.img_url }}" alt="{{ text.img_url }}">
                           <div class="caption">
                             <h3>{{ text.title }}</h3>
@@ -86,7 +86,7 @@
 
     <script>
         $(document).ready(function () {
-            $('.lecture-container').show();
+            $('.posting-container').show();
             $('.around_news').hide();
             $('.family_news').hide();
             $('.memory').hide();
@@ -94,7 +94,7 @@
         $(function() {
             $('#type').change(function(){
                 if($('#type').val() == '카테고리 필터') {
-                    $('.lecture-container').show();
+                    $('.posting-container').show();
                     $('.around_news').hide();
                     $('.family_news').hide();
                     $('.memory').hide();

@@ -23,7 +23,7 @@ class myText(models.Model):
         return self.title
 
 class Comment(models.Model):
-    lecture = models.ForeignKey(myText, on_delete=models.CASCADE)
+    posting = models.ForeignKey(myText, on_delete=models.CASCADE)
     writer = models.CharField(max_length=200, null=True)
     rate = models.CharField(max_length=200, null=True)
     comment = models.CharField(max_length=200, null=True)

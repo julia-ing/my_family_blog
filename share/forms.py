@@ -1,7 +1,7 @@
 from django import forms
 from .models import myText
 
-class LectureForm(forms.ModelForm):
+class PostingForm(forms.ModelForm):
     class Meta:
         model = myText
         fields = (

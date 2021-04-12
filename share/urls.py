@@ -2,10 +2,10 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('lecture_list/', views.lecture_list, name="lecture_list"),
-    path('lecture_list_info/<int:pk>', views.lecture_list_info, name="lecture_list_info"),
+    path('posting_list/', views.posting_list, name="posting_list"),
+    path('posting_list_info/<int:pk>', views.posting_list_info, name="posting_list_info"),
     path('comment_remove/<int:pk>', views.comment_remove, name="comment_remove"),
-    path('create_lecture/', views.create_lecture, name="create_lecture"),
-    path('my_lecture/', views.my_lecture, name="my_lecture"),
-    path('edit_lecture/<int:pk>', views.edit_lecture, name="edit_lecture"),
+    path('create_posting/', views.create_posting, name="create_posting"),
+    path('my_posting/', views.my_posting, name="my_posting"),
+    path('edit_posting/<int:pk>', views.edit_posting, name="edit_posting"),
 ]

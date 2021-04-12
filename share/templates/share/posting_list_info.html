@@ -16,7 +16,7 @@
     </div>
 
     <div style="width:800px; margin: auto;">
-        <form method="POST" action="{% url 'lecture_list_info' pk=board_contents.pk %}">
+        <form method="POST" action="{% url 'posting_list_info' pk=board_contents.pk %}">
             {% csrf_token %}
             <h3>Comment</h3>
           <div class="form-group">
@@ -47,10 +47,10 @@
         <table style="width: 500px; margin: auto;">
 
                 <tr>
-                    {% if board_contents.lecture_title1 %}
+                    {% if board_contents.posting_title1 %}
                         <td>
-                            <a href="{% url 'show_lecture' pk=board_contents.pk %}">
-                                {{ board_contents.lecture_title1 }}
+                            <a href="{% url 'show_posting' pk=board_contents.pk %}">
+                                {{ board_contents.posting_title1 }}
                             </a>
                         </td>
                     {% endif %}

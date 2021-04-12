@@ -23,18 +23,18 @@ nav ul li {
     margin: 10px 0 0 10px;
 }
 
-.lecture-container {
+.posting-container {
     display: flex;
     flex-wrap: wrap;
 }
 
-.lectures {
+.posting {
     border: 1px solid black;
     margin: 10px;
     border-radius: 5px;
     padding: 5px;
 }
-.lectures img {
+.posting img {
     height: 30vh;
     width: 20vw;
 }

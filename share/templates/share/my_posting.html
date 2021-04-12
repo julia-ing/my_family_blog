@@ -15,19 +15,19 @@
     </style>
 
     <h2 class="main_caption" style="margin: 20px;"> <내가 작성한 글> </h2>
-    <div class="lecture-container">
+    <div class="posting-container">
 
-    {% for text in lectures %}
-        <div class="lectures">
+    {% for text in posting %}
+        <div class="posting">
             <div class="thumbnail">
-                <a href="{% url 'lecture_list_info' pk=text.pk %}">
+                <a href="{% url 'posting_list_info' pk=text.pk %}">
                   <img src="../../media/{{ text.img_url }}" alt="{{ text.img_url }}">
                   <div class="caption" style="padding: 10px 0 0 10px;">
                     <h3>{{ text.title}}</h3>
                   </div>
                 </a>
             </div>
-            <a href="{% url 'edit_lecture' pk=text.pk %}">
+            <a href="{% url 'edit_posting' pk=text.pk %}">
                 <button style="background-color: #feb546; color: white; padding: 5px; margin: 5px; cursor: pointer;">수정하기</button>
             </a>
         </div>

@@ -30,14 +30,14 @@
 </style>
 <body>
         <nav style="background-color: #ff9b9b; height: 55px; line-height: 35px;" id="navbar">
-            <a href="/share/lecture_list" class="title" style="text-decoration: none; color: white;">
+            <a href="/share/posting_list" class="title" style="text-decoration: none; color: white;">
                 SHARE-IDEAS
             </a>
             <ul>
-                <a href="/share/lecture_list" class="nav-item"><li>게시판 보기</li></a>
+                <a href="/share/posting_list" class="nav-item"><li>게시판 보기</li></a>
                 {% if user.is_authenticated %}
-                    <a href="/share/create_lecture" class="nav-item"><li>글 작성하기</li></a>
-                    <a href="/share/my_lecture" class="nav-item"><li>내가 쓴 글</li></a>
+                    <a href="/share/create_posting" class="nav-item"><li>글 작성하기</li></a>
+                    <a href="/share/my_posting" class="nav-item"><li>내가 쓴 글</li></a>
                     <a href="/home" class="nav-item"><li>메인으로</li></a>
                 {% endif %}
             </ul>
